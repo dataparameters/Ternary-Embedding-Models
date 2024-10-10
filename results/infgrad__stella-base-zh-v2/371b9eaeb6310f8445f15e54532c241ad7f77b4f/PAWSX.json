@@ -1,0 +1,26 @@
+{
+  "dataset_revision": "9c6a90e430ac22b5779fb019a23e820b11a8b5e1",
+  "evaluation_time": 1.849534511566162,
+  "kg_co2_emissions": null,
+  "mteb_version": "1.14.17",
+  "scores": {
+    "test": [
+      {
+        "cosine_pearson": 0.24230538023323875,
+        "cosine_spearman": 0.29695652807481254,
+        "euclidean_pearson": 0.2968249018051301,
+        "euclidean_spearman": 0.2929373392329091,
+        "hf_subset": "default",
+        "languages": [
+          "cmn-Hans"
+        ],
+        "main_score": 0.29695652807481254,
+        "manhattan_pearson": 0.29683980389820463,
+        "manhattan_spearman": 0.29215435223126557,
+        "pearson": 0.24230537199048524,
+        "spearman": 0.2971424825401657
+      }
+    ]
+  },
+  "task_name": "PAWSX"
+}

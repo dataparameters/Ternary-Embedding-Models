@@ -1,0 +1,26 @@
+{
+  "dataset_revision": "8d7f1e942507dac42dc58017c1a001c3717da7df",
+  "evaluation_time": 72.13647770881653,
+  "kg_co2_emissions": null,
+  "mteb_version": "1.14.17",
+  "scores": {
+    "test": [
+      {
+        "hf_subset": "default",
+        "languages": [
+          "cmn-Hans"
+        ],
+        "main_score": 0.8470180420589174,
+        "map": 0.8470180420589174,
+        "mrr": 0.871659126984127,
+        "nAUC_map_diff1": 0.5327358861854232,
+        "nAUC_map_max": 0.4556513162970527,
+        "nAUC_map_std": 0.09071965197794125,
+        "nAUC_mrr_diff1": 0.5798111855500157,
+        "nAUC_mrr_max": 0.5284861451412076,
+        "nAUC_mrr_std": 0.19730378221984157
+      }
+    ]
+  },
+  "task_name": "CMedQAv1-reranking"
+}

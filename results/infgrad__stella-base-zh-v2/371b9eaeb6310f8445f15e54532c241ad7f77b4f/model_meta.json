@@ -1,0 +1,1 @@
+{"name": "infgrad/stella-base-zh-v2", "revision": "371b9eaeb6310f8445f15e54532c241ad7f77b4f", "release_date": null, "languages": [], "n_parameters": null, "memory_usage": null, "max_tokens": null, "embed_dim": null, "license": null, "open_source": null, "similarity_fn_name": null, "framework": ["Sentence Transformers"], "loader": null}

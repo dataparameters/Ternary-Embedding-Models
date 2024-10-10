@@ -1,0 +1,43 @@
+{
+  "dataset_revision": "0f319b1142f28d00e055a6770f3f726ae9b7d865",
+  "evaluation_time": 13.436558246612549,
+  "kg_co2_emissions": null,
+  "mteb_version": "1.14.17",
+  "scores": {
+    "test": [
+      {
+        "cosine_pearson": 0.49543783292737387,
+        "cosine_spearman": 0.5122158225621845,
+        "euclidean_pearson": 0.5330329720362228,
+        "euclidean_spearman": 0.5114843347251864,
+        "hf_subset": "default",
+        "languages": [
+          "cmn-Hans"
+        ],
+        "main_score": 0.5122158225621845,
+        "manhattan_pearson": 0.5331973660172014,
+        "manhattan_spearman": 0.5115042963684545,
+        "pearson": 0.4954378353119205,
+        "spearman": 0.5122157324921518
+      }
+    ],
+    "validation": [
+      {
+        "cosine_pearson": 0.5037543970138592,
+        "cosine_spearman": 0.5279677521199809,
+        "euclidean_pearson": 0.5402699025373219,
+        "euclidean_spearman": 0.5265825605274557,
+        "hf_subset": "default",
+        "languages": [
+          "cmn-Hans"
+        ],
+        "main_score": 0.5279677521199809,
+        "manhattan_pearson": 0.540220922335021,
+        "manhattan_spearman": 0.5265971651141996,
+        "pearson": 0.5037543965823874,
+        "spearman": 0.5279676739606722
+      }
+    ]
+  },
+  "task_name": "ATEC"
+}

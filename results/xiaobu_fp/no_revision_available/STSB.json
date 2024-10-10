@@ -1,0 +1,55 @@
+{
+  "dataset_revision": "0cde68302b3541bb8b3c340dc0644b0b745b3dc0",
+  "evaluation_time": 4.677043199539185,
+  "kg_co2_emissions": null,
+  "mteb_version": "1.14.12",
+  "scores": {
+    "test": [
+      {
+        "cosine_pearson": 0.8030630659996173,
+        "cosine_spearman": 0.8205000555711753,
+        "euclidean_pearson": 0.7992981368599854,
+        "euclidean_spearman": 0.8029649499622771,
+        "hf_subset": "default",
+        "languages": [
+          "cmn-Hans"
+        ],
+        "main_score": 0.8205000555711753,
+        "manhattan_pearson": 0.7994438540340678,
+        "manhattan_spearman": 0.8028185780219799,
+        "pearson": [
+          0.8030630619395497,
+          7.674722030734459e-308
+        ],
+        "spearman": [
+          0.8204885621532947,
+          0.0
+        ]
+      }
+    ],
+    "validation": [
+      {
+        "cosine_pearson": 0.8432931601008545,
+        "cosine_spearman": 0.8590918730703941,
+        "euclidean_pearson": 0.8312512178361506,
+        "euclidean_spearman": 0.8334148825166056,
+        "hf_subset": "default",
+        "languages": [
+          "cmn-Hans"
+        ],
+        "main_score": 0.8590918730703941,
+        "manhattan_pearson": 0.8310578963889617,
+        "manhattan_spearman": 0.833414098907608,
+        "pearson": [
+          0.8432931468423283,
+          0.0
+        ],
+        "spearman": [
+          0.8590917646264615,
+          0.0
+        ]
+      }
+    ]
+  },
+  "task_name": "STSB"
+}

@@ -1,0 +1,58 @@
+{
+  "dataset_revision": "66e76a618a34d6d565d5538088562851e6daa7ec",
+  "evaluation_time": 3.903362274169922,
+  "kg_co2_emissions": null,
+  "mteb_version": "1.14.18",
+  "scores": {
+    "validation": [
+      {
+        "cosine_accuracy": 0.8272874932322686,
+        "cosine_accuracy_threshold": 0.836359441280365,
+        "cosine_ap": 0.8683974747294577,
+        "cosine_f1": 0.8402710551790901,
+        "cosine_f1_threshold": 0.8263455033302307,
+        "cosine_precision": 0.775692582663092,
+        "cosine_recall": 0.9165786694825766,
+        "dot_accuracy": 0.7336220898754737,
+        "dot_accuracy_threshold": 719.0963134765625,
+        "dot_ap": 0.8031292100997038,
+        "dot_f1": 0.757734412184674,
+        "dot_f1_threshold": 685.7832641601562,
+        "dot_precision": 0.6897746967071057,
+        "dot_recall": 0.8405491024287223,
+        "euclidean_accuracy": 0.8099621007038441,
+        "euclidean_accuracy_threshold": 16.56222915649414,
+        "euclidean_ap": 0.8497510597111531,
+        "euclidean_f1": 0.8221153846153846,
+        "euclidean_f1_threshold": 17.361373901367188,
+        "euclidean_precision": 0.7546337157987644,
+        "euclidean_recall": 0.9028511087645196,
+        "hf_subset": "default",
+        "languages": [
+          "cmn-Hans"
+        ],
+        "main_score": 0.8272874932322686,
+        "manhattan_accuracy": 0.8088792636708175,
+        "manhattan_accuracy_threshold": 559.068359375,
+        "manhattan_ap": 0.8496238367375035,
+        "manhattan_f1": 0.8231292517006802,
+        "manhattan_f1_threshold": 581.234130859375,
+        "manhattan_precision": 0.7623762376237624,
+        "manhattan_recall": 0.8944033790918691,
+        "max_accuracy": 0.8272874932322686,
+        "max_ap": 0.8683977604209602,
+        "max_f1": 0.8402710551790901,
+        "max_precision": 0.775692582663092,
+        "max_recall": 0.9165786694825766,
+        "similarity_accuracy": 0.8272874932322686,
+        "similarity_accuracy_threshold": 0.836359441280365,
+        "similarity_ap": 0.8683977604209602,
+        "similarity_f1": 0.8402710551790901,
+        "similarity_f1_threshold": 0.8263454437255859,
+        "similarity_precision": 0.775692582663092,
+        "similarity_recall": 0.9165786694825766
+      }
+    ]
+  },
+  "task_name": "Ocnli"
+}
