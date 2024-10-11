@@ -71,7 +71,7 @@ def eval(model_name,train=False,ternary=False,bitblas=False,bitblas_weight=None,
     model = SentenceTransformer(model_name).to(device)
 
     if train:
-        body = get_tn_body(model_name)
+        body = get_tn_body(model_name,device=device)
         model._first_module().auto_model = body
 
     if ternary and not train:
@@ -118,12 +118,12 @@ def eval(model_name,train=False,ternary=False,bitblas=False,bitblas_weight=None,
         results = evaluation.run(model, output_folder=f"results1", encode_kwargs={'batch_size': 256})
 
 if __name__ == "__main__":
-    eval(model_name = "/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/models/xiaobu-embedding-tn",
-         train=False,
-         ternary=True,
-         bitblas=True,
+    eval(model_name = "/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/models/xiaobu-embedding-v2",
+         train=True,
+         ternary=False,
+         bitblas=False,
          bitblas_weight="/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/models/weight_xiaobu_tn.pth",
-         save=False
+         save=True
          )
 
 #在A800上无法用bitblas跑JDReview
