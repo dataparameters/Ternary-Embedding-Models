@@ -5,8 +5,7 @@ import torch.nn as nn
 def Ternarize(W):
     with torch.no_grad():
         m = W.abs().mean()
-        #m *= 2
-        m *= 1
+        m *= 2
         W = torch.clamp(torch.round(W / m), min=-1, max=1)
         return W * m
 

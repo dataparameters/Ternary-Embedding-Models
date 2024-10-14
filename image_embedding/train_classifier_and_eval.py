@@ -49,7 +49,7 @@ def load_model(path,num_labels=1000, device='cuda:0',ternary=False):
 def train_model(model, train_loader, epochs=1, initial_lr=1e-3, device='cuda:0'):
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.classifier.parameters(), lr=initial_lr)
-    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.2)
+    scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=10, gamma=0.2)
 
     model.train()
     for epoch in range(epochs):

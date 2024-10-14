@@ -1,0 +1,26 @@
+{
+  "dataset_revision": "b44c3b011063adb25877c13823db83bb193913c4",
+  "evaluation_time": 2.566898822784424,
+  "kg_co2_emissions": null,
+  "mteb_version": "1.14.18",
+  "scores": {
+    "validation": [
+      {
+        "cosine_pearson": 0.4232219070038923,
+        "cosine_spearman": 0.4446355853660435,
+        "euclidean_pearson": 0.42790954949111526,
+        "euclidean_spearman": 0.44370415344987457,
+        "hf_subset": "default",
+        "languages": [
+          "cmn-Hans"
+        ],
+        "main_score": 0.4446355853660435,
+        "manhattan_pearson": 0.4270288176613215,
+        "manhattan_spearman": 0.4428380605183173,
+        "pearson": 0.42322188748626854,
+        "spearman": 0.4446359874850811
+      }
+    ]
+  },
+  "task_name": "AFQMC"
+}

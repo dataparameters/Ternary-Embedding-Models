@@ -1,0 +1,26 @@
+{
+  "dataset_revision": "76631901a18387f85eaa53e5450019b87ad58ef9",
+  "evaluation_time": 1507.3858597278595,
+  "kg_co2_emissions": null,
+  "mteb_version": "1.14.18",
+  "scores": {
+    "dev": [
+      {
+        "hf_subset": "default",
+        "languages": [
+          "cmn-Hans"
+        ],
+        "main_score": 0.6758970946239881,
+        "map": 0.6758970946239881,
+        "mrr": 0.7789890087156505,
+        "nAUC_map_diff1": -0.08033632622392713,
+        "nAUC_map_max": 0.36428352971724787,
+        "nAUC_map_std": -0.006639884666851259,
+        "nAUC_mrr_diff1": -0.06576581522610153,
+        "nAUC_mrr_max": 0.2942173379423603,
+        "nAUC_mrr_std": -0.02066174417247753
+      }
+    ]
+  },
+  "task_name": "T2Reranking"
+}

@@ -13,6 +13,8 @@ def initialize_models(path, device):
     modelB = AutoModel.from_pretrained(path)
     replace_linear(modelB) 
     modelB = modelB.to(device)
+
+    print(modelB)
     
     modelA.eval()
     for param in modelA.parameters():
@@ -21,7 +23,7 @@ def initialize_models(path, device):
     return tokenizer, modelA, modelB
 
 
-def train_model(modelA, modelB, tokenizer, trainloader, device, num_epochs=1, lr=1e-4):
+def train_model(modelA, modelB, tokenizer, trainloader, device, num_epochs, lr=2e-5):
     loss_fn = torch.nn.MSELoss()
     
     for epoch in range(num_epochs):
@@ -50,7 +52,7 @@ def train_model(modelA, modelB, tokenizer, trainloader, device, num_epochs=1, lr
 
     return modelB
 
-def get_tn_body(path, batch_size=32, num_epochs=1, device='cuda:0'):
+def get_tn_body(path, batch_size=16, num_epochs=2, device='cuda:0'):
     tokenizer, modelA, modelB = initialize_models(path, device)
     
     trainloader = text_dataloader(batch_size)
@@ -59,7 +61,7 @@ def get_tn_body(path, batch_size=32, num_epochs=1, device='cuda:0'):
 
     return modelB
 
-def eval(model_name,train=False,ternary=False,bitblas=False,bitblas_weight=None,save=False):
+def eval(model_name,device,train=False,ternary=False,bitblas=False,bitblas_weight=None,save=False):
     import os
     os.environ["PATH"] = "/usr/local/cuda/bin:" + os.environ["PATH"]
     os.environ["CUDA_DEVICE_ORDER"]="PCI_BUS_ID"
@@ -67,7 +69,7 @@ def eval(model_name,train=False,ternary=False,bitblas=False,bitblas_weight=None,
     import mteb
     from sentence_transformers import SentenceTransformer
 
-    device="cuda:0"
+
     model = SentenceTransformer(model_name).to(device)
 
     if train:
@@ -118,11 +120,13 @@ def eval(model_name,train=False,ternary=False,bitblas=False,bitblas_weight=None,
         results = evaluation.run(model, output_folder=f"results1", encode_kwargs={'batch_size': 256})
 
 if __name__ == "__main__":
-    eval(model_name = "/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/models/xiaobu-embedding-v2",
-         train=True,
+    eval(#model_name = "/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/models/xiaobu-embedding-v2",
+         model_name = "/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/stella-base-zh-v2",
+         device="cuda:0",
+         train=False,
          ternary=False,
          bitblas=False,
-         bitblas_weight="/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/models/weight_xiaobu_tn.pth",
+         #bitblas_weight="/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/models/weight_xiaobu_tn.pth",
          save=True
          )
 

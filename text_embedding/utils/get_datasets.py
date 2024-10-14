@@ -45,7 +45,7 @@ def create_dataloader(texts, batch_size=512, shuffle=True):
     创建DataLoader
     """
     dataset = TextPairDataset(texts)
-    return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle)
+    return DataLoader(dataset, batch_size=batch_size, shuffle=shuffle, num_workers=0)
 
 def text_dataloader(batch_size=512,save=False):  
     nli_zh_file = '/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/datasets/train_data_zh/sampled_data_nli_zh-train-25k.jsonl'
@@ -53,7 +53,7 @@ def text_dataloader(batch_size=512,save=False):
 
     texts1 = load_nli_texts(nli_zh_file)
     texts2 = load_t2ranking_sentences(t2ranking_file, ['anchor', 'positive', 'negative'])
-    texts1 += texts2
+    #texts1 += texts2
     
     if save:
         save_texts_to_json(texts1, 'list.json')
