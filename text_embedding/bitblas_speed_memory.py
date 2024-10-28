@@ -13,8 +13,8 @@ import time
 if __name__ == "__main__":  
     
     device="cuda:0"
-    #model_name = "/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/models/xiaobu-embedding-tn"
-    model_name='/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/models/stella-base-zh-tn'
+    model_name = "/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/models/xiaobu-embedding-tn"
+    #model_name='/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/models/stella-base-zh-tn'
 
     sentences = ["Hey, it is a nice day", "I do not know why it works"]
 

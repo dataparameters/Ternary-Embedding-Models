@@ -79,9 +79,11 @@ def eval(model_name,device,train=False,ternary=False,bitblas=False,bitblas_weigh
     if ternary and not train:
         if bitblas:
             from utils.BitBlasModules import replace_linear2bitblas
-            replace_linear2bitblas(model._first_module())
+            replace_linear2bitblas(model._first_module().auto_model)
             if bitblas_weight is not None:
-                model.load_state_dict(torch.load(bitblas_weight))
+                from safetensors.torch import load_file
+                model._first_module().auto_model.load_state_dict(load_file(bitblas_weight))
+                #model._first_module().auto_model.load_state_dict(torch.load(bitblas_weight))
         else:
             replace_linear(model._first_module())
 
@@ -90,19 +92,21 @@ def eval(model_name,device,train=False,ternary=False,bitblas=False,bitblas_weigh
 
     if save:
         if bitblas:
-            torch.save(model.state_dict(),'weight_bitblas.pth')
+            model.save_pretrained('saved_bitblas')
+            #torch.save(model._first_module().auto_model.state_dict(),'weight_bitblas.pth')
+            #torch.save(model.state_dict(),'weight_bitblas.pth')
         else:
             model.save_pretrained('saved')
 
     # task_list = ["TNews","IFlyTek"]
 
-    task_list = ["MultilingualSentiment", "OnlineShopping", "Waimai", 
+    task_list = ["MultilingualSentiment", "OnlineShopping", "Waimai", "JDReview","MassiveScenarioClassification","MassiveIntentClassification","TNews","IFlyTek",
              "CLSClusteringS2S.v2", "CLSClusteringP2P.v2", "ThuNewsClusteringS2S.v2", "ThuNewsClusteringP2P.v2",
              "Ocnli", "Cmnli",
              "T2Reranking", "MMarcoReranking", "CMedQAv1-reranking", "CMedQAv2-reranking",
              "T2Retrieval", "MMarcoRetrieval", "DuRetrieval", "CovidRetrieval", "CmedqaRetrieval", "EcomRetrieval", "MedicalRetrieval", "VideoRetrieval",
-             "ATEC", "BQ", "LCQMC", "PAWSX", "STSB", "AFQMC", "QBQTC",
-             "JDReview"]
+             "ATEC", "BQ", "LCQMC", "PAWSX", "STSB", "AFQMC", "QBQTC","STS22.v2"
+             ]
 
     '''
     task_list = ["AmazonPolarityClassification", "Banking77Classification", "EmotionClassification", "ImdbClassification",
@@ -120,14 +124,14 @@ def eval(model_name,device,train=False,ternary=False,bitblas=False,bitblas_weigh
         results = evaluation.run(model, output_folder=f"results1", encode_kwargs={'batch_size': 256})
 
 if __name__ == "__main__":
-    eval(#model_name = "/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/models/xiaobu-embedding-v2",
-         model_name = "/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/stella-base-zh-v2",
+    eval(#model_name = "/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/models/xiaobu-embedding-tn",
+         model_name = "/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/ternary-weight-embedding",
          device="cuda:0",
          train=False,
-         ternary=False,
-         bitblas=False,
-         #bitblas_weight="/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/models/weight_xiaobu_tn.pth",
-         save=True
+         ternary=True,
+         bitblas=True,
+         bitblas_weight="/home/amax/chx/vsremote/MAB-FG/EmbeddingModels/ternary-weight-embedding/model.safetensors",
+         save=False
          )
 
 #在A800上无法用bitblas跑JDReview

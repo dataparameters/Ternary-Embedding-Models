@@ -1,3 +1,7 @@
 datasets/
 models/
 results_copy/
+upload_to_hub.py
+saved/
+ternary-weight-embedding/
+results1/

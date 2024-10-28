@@ -26,7 +26,8 @@ class bitlinear(bitblas.Linear):
             zeros_mode: str = None,
             opt_M: list = [1, 16, 32, 64, 128, 256, 512],
             fast_decoding: bool = True,
-            alpha: torch.float16 = 1.
+            alpha: torch.dtype = torch.float16,
+            b:torch.Tensor=None
     ):
         super().__init__(
             in_features=in_features,
@@ -44,12 +45,13 @@ class bitlinear(bitblas.Linear):
             fast_decoding=fast_decoding,
         )
         self.alpha = nn.Parameter(alpha,requires_grad=False)
+        self.b = nn.Parameter(b,requires_grad=False)
 
     def forward(self, A: torch.Tensor, out: torch.Tensor = None) -> torch.Tensor:
         out = super().forward(A, out)
         out *= self.alpha
-        if self.bias is not None:
-            out += self.bias.view(1, -1).expand_as(out)
+        if self.b is not None:
+            out += self.b.view(1, -1).expand_as(out)
         return out.to(torch.float32)
 
 
@@ -81,11 +83,10 @@ def convert_to_bitlinear(layer):
         # By default, the optimization var is [1, 16, 32, 64, 128, 256, 512]
         opt_M=[1, 16, 32, 64, 128, 256, 512],
         fast_decoding=True,
-        alpha=a.to(torch.float16)
+        alpha=a.to(torch.float16),
+        b = layer.bias.data.to(torch.float16)
     )
     bitlayer.load_and_transform_weight(w.to(torch.int8))
-    if layer.bias is not None:
-        bitlayer.bias = layer.bias.data.to(torch.float16)
     return bitlayer
 
 

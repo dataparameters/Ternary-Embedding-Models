@@ -53,7 +53,7 @@ def text_dataloader(batch_size=512,save=False):
 
     texts1 = load_nli_texts(nli_zh_file)
     texts2 = load_t2ranking_sentences(t2ranking_file, ['anchor', 'positive', 'negative'])
-    #texts1 += texts2
+    texts1 += texts2
     
     if save:
         save_texts_to_json(texts1, 'list.json')
