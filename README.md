@@ -1,6 +1,3 @@
-Here’s a suggested `README.md` file for your repository:
-
-```markdown
 # Efficient Ternary Weight Embedding Model: Bridging Scalability and Performance
 
 ## Overview
@@ -108,6 +105,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 Special thanks to the teams behind [Hugging Face Transformers](https://huggingface.co/), [FAISS](https://github.com/facebookresearch/faiss), and the open datasets used in this project.
-```
-
-This `README.md` provides a comprehensive overview, installation instructions, usage steps, and results. You can adjust the text further based on your preferences or additional details.
