@@ -104,4 +104,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-Special thanks to the teams behind [LAMDA](https://www.lamda.nju.edu.cn/MainPage.ashx)), and the open datasets used in this project.
+Special thanks to the teams behind [LAMDA](https://www.lamda.nju.edu.cn/MainPage.ashx), and the open datasets used in this project.
