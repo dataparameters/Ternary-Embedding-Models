@@ -93,7 +93,7 @@ If you use this code or framework in your research, please cite:
 @article{chen2024ternaryembedding,
   title={Efficient Ternary Weight Embedding Model: Bridging Scalability and Performance},
   author={Chen, Jiayi and Wu, Chen and Zhang, Shaoqun and Li, Nan and Zhang, Liangjie and Zhang, Qi},
-  journal={arXiv preprint arXiv:XXXX.XXXXX},
+  journal={arXiv preprint arXiv:2411.15438},
   year={2024}
 }
 ```
@@ -104,4 +104,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-Special thanks to the teams behind [Hugging Face Transformers](https://huggingface.co/), [FAISS](https://github.com/facebookresearch/faiss), and the open datasets used in this project.
+Special thanks to the teams behind [LAMDA](https://www.lamda.nju.edu.cn/MainPage.ashx)), and the open datasets used in this project.
