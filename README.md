@@ -9,13 +9,6 @@ Key contributions:
 2. **Self-Distillation**: A fine-tuning framework leveraging outputs from pre-trained full-precision models to guide ternary-weight networks.
 3. **Scalable Performance**: Demonstrated improvements in memory efficiency and latency in text and image embedding models, with integration in Approximate Nearest Neighbor (ANN) search for real-time recommendation systems.
 
-## Repository Structure
-
-```plaintext
-.
-
-```
-
 ## Requirements
 
 - Python >= 3.8
