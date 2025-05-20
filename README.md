@@ -12,71 +12,66 @@ Key contributions:
 ## Requirements
 
 - Python >= 3.8
-- PyTorch >= 1.10
-- Hugging Face Transformers
-- FAISS
-- NumPy, Pandas, Matplotlib
-- Other dependencies in `requirements.txt`
+- torch
+- transformers
+- sentence-transformers
+- faiss
+- numpy
+- tqdm
+- datasets
+- torchvision (for image tasks)
+- mteb
+- (bitblas, if used)
 
-To install the dependencies, run:
+Please install these dependencies manually as there is no `requirements.txt` file in the repository.
 
-```bash
-pip install -r requirements.txt
-```
+## Directory Structure
 
-## Getting Started
+- `text_embedding/`: Scripts for training and evaluating ternary text embedding models.
+- `image_embedding/`: Scripts for training and evaluating ternary image embedding models.
+- `Embedding-ANN/`: Scripts for evaluating embeddings with ANN search.
+- `GPTQ-Bert/`: Scripts for quantized BERT models (if relevant).
 
-### Fine-Tuning Ternary-Weight Models
-
-#### Text Embedding
-1. **Prepare Dataset**: Place the training data (e.g., `nli-zh-25k` and `t2ranking`) in the `data/` folder.
-2. **Run Fine-Tuning**:
-   ```bash
-   python experiments/text_embedding/fine_tune_text.py --model xiaobu-embedding-v2 --data_path data/
-   ```
-
-#### Image Embedding
-1. **Prepare Dataset**: Use datasets like ImageNet-1k or CIFAR for training.
-2. **Run Fine-Tuning**:
-   ```bash
-   python experiments/image_embedding/fine_tune_image.py --model vit-base-patch16-224 --data_path data/
-   ```
-
-### Evaluation
-1. **Evaluate Text Embedding**:
-   ```bash
-   python experiments/text_embedding/evaluate_text.py --model xiaobu-ternary
-   ```
-2. **Evaluate Image Embedding**:
-   ```bash
-   python experiments/image_embedding/evaluate_image.py --model vit-ternary
-   ```
-
-### Integration with ANN
-1. **Run ANN Integration**:
-   ```bash
-   python experiments/ann/ann_integration.py --model xiaobu-ternary --dataset CmedqaRetrieval
-   ```
-
-2. **Evaluate ANN Performance**:
-   ```bash
-   python experiments/ann/ann_evaluation.py --model xiaobu-ternary --dataset CmedqaRetrieval
-   ```
-
-## Results
+## Usage
 
 ### Text Embedding
-| **Task**          | **Baseline (FP32)** | **Ternary (INT2)** | **Latency** | **Storage** |
-|--------------------|---------------------|--------------------|-------------|-------------|
-| Retrieval          | 82.27              | 78.38             | 0.37×       | 0.13×       |
-| Classification     | 72.70              | 70.14             | 0.37×       | 0.13×       |
-| STS                | 64.18              | 62.70             | 0.37×       | 0.13×       |
+
+- **Training and Evaluation**:
+  ```bash
+  python text_embedding/train_and_eval_TnModel.py
+  ```
+  Edit the script to set your model path, device, and options for ternary/bitblas as needed.
+
+- **Benchmarking Speed/Memory**:
+  ```bash
+  python text_embedding/bitblas_speed_memory.py
+  ```
 
 ### Image Embedding
-| **Dataset**       | **Baseline (FP32)** | **Ternary (INT2)** | **Latency** | **Storage** |
-|--------------------|---------------------|--------------------|-------------|-------------|
-| CIFAR-10          | 96.79%             | 94.79%            | 0.69×       | 0.07×       |
-| CIFAR-100         | 86.38%             | 82.36%            | 0.69×       | 0.07×       |
+
+- **Training and Evaluation**:
+  ```bash
+  python image_embedding/train_classifier_and_eval.py
+  ```
+  Edit the script to set dataset/model paths and options.
+
+- **Benchmarking Speed/Memory**:
+  ```bash
+  python image_embedding/bitblas_speed_memory.py
+  ```
+
+- **BitBlas Accuracy Evaluation**:
+  ```bash
+  python image_embedding/bitblas_accuracy.py
+  ```
+
+### ANN Evaluation
+
+- **Run ANN Evaluation**:
+  ```bash
+  python Embedding-ANN/ANN_eval.py
+  ```
+  Edit the script to set model paths and ANN method.
 
 ## Citation
 
